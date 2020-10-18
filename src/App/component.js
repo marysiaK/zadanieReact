@@ -1,5 +1,5 @@
 import React from 'react';
-import EmployersSelectionForm from '../Employers/component';
+import EmployersSelectionForm from '../Employees/component';
 import './style.css'
 
 const App = () => {

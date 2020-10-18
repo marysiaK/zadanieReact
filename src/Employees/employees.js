@@ -1,6 +1,6 @@
 export default [
     { name: "Janusz", surname: "Tracz", localisations: ["Arkady", "Magnolia"], position: "menadżer", employmentCondition: "umowa o pracę" },
-    { name: "Maria", surname: "Szkłodowska", localisations: ["Bronowice"], position: "kucharz", employmentCondition: "umowa zlecenie" },
+    { name: "Maria", surname: "Skłodowska", localisations: ["Bronowice"], position: "kucharz", employmentCondition: "umowa zlecenie" },
     { name: "Robert", surname: "Lewandowski", localisations: ["Magnolia", "Bielany"], position: "menadżer", employmentCondition: "umowa o dzieło" },
     { name: "Zbigniew", surname: "Boniek", localisations: ["Szwoszowice", "Bronowice", "Dębniki"], position: "konserwartor", employmentCondition: "umowa o pracę" },
     { name: "Elżbieta", surname: "Szron", localisations: ["Centrum"], position: "klucznik", employmentCondition: "umowa o pracę" },

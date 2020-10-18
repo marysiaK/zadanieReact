@@ -1,4 +1,4 @@
-.employersSelectionForm{
+.employeesSelectionForm{
     width: 500px;
     border-radius: 5px;
     padding: 30px;
@@ -7,7 +7,7 @@
     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.35);
 }
 
-.employersSelectionForm-btn{
+.employeesSelectionForm-btn{
     display: flex;
     justify-content: flex-end;
     margin-top: 40px;
@@ -18,7 +18,7 @@
 }
 
 @media only screen and (max-width: 768px){
-    .employersSelectionForm{
+    .employeesSelectionForm{
         width: 80%;
     }
 }

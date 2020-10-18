@@ -1,4 +1,13 @@
-Emploeyers selection form App
+<h1> Employees selection form App </h1<>
+
+## Start project
+
+1. Go to the main project directory - `task`<br />
+2. Open terminal or powershell/cmd in the main project directory<br />
+3. Install all necessary dependencies from package.json file - use command `npm install`<br />
+4. After installation you can runs the app in the development mode - use command `npm start` - this command will automatically build project and 
+after a while it will start development server<br />
+5. You can also builds the app for production to the `build` folder - use command `npm build`
 
 ## Available Scripts
 

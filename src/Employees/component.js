@@ -4,18 +4,18 @@ import FormItem from '../components/FormItem/component';
 import DateRangePicker from '../components/DateRangePicker/component'
 import Button from '../components/Button/component';
 import { getValuesOfProperty } from '../utils/arrays/operations'
-import { prepareSelectOptions } from './empoleyers_operations'
+import { prepareSelectOptions } from './empoleyees_operations'
 import './style.css'
-import employers from './employers';
+import employees from './employees';
 
-const EmployersSelectionForm = () => {
+const Employees = () => {
     const [dateRange, setDateRange] = useState({
         startDate: "",
         endDate: ""
     })
 
-    const [filteredEmployers, setFilteredEmployers] = useState([...employers])
-    const [employersFilters, setEmployersFilters] = useState({
+    const [filteredEmployees, setFilteredEmployees] = useState([...employees])
+    const [employeesFilters, setEmployeesFilters] = useState({
         positions: [],
         localisations: [],
         employmentConditions: []
@@ -24,79 +24,79 @@ const EmployersSelectionForm = () => {
     const [selectPositionsOptions, setSelectPositionsOptions] = useState([])
     const [selectLocalisationsOptions, setSelectLocalisationsOptions] = useState([])
     const [selectEmploymentConditionsOptions, setSelectEmploymentConditionsOptions] = useState([])
-    const [selectEmployersOptions, setSelectEmployersOptions] = useState([])
+    const [selectEmployeesOptions, setSelectEmployeesOptions] = useState([])
 
-    const [selectedEmployers, setSelectedEmployers] = useState([])
+    const [selectedEmployees, setSelectedEmployees] = useState([])
 
     useEffect(() => {
-        const positions = getValuesOfProperty(employers, "position")
+        const positions = getValuesOfProperty(employees, "position")
         const preparedPositionsOptions = prepareSelectOptions(positions)
         setSelectPositionsOptions(preparedPositionsOptions)
 
-        const localisations = getValuesOfProperty(employers, "localisations")
+        const localisations = getValuesOfProperty(employees, "localisations")
         const preparedLocalisationsOptions = prepareSelectOptions(localisations)
         setSelectLocalisationsOptions(preparedLocalisationsOptions)
 
-        const employmentConditions = getValuesOfProperty(employers, "employmentCondition")
+        const employmentConditions = getValuesOfProperty(employees, "employmentCondition")
         const preparedEmploymentConditionsOptions = prepareSelectOptions(employmentConditions)
         setSelectEmploymentConditionsOptions(preparedEmploymentConditionsOptions)
 
-        const preparedEmployersOptions = prepareSelectOptions(filteredEmployers, ["name", "surname"])
-        setSelectEmployersOptions(preparedEmployersOptions)
+        const preparedEmployeesOptions = prepareSelectOptions(filteredEmployees, ["name", "surname"])
+        setSelectEmployeesOptions(preparedEmployeesOptions)
     }, [])
 
     useEffect(() => {
-        let fEmployers = [...employers]
-        if (employersFilters.positions.length > 0)
-            fEmployers = fEmployers
+        let fEmployees = [...employees]
+        if (employeesFilters.positions.length > 0)
+            fEmployees = fEmployees
                 .filter(employer => {
-                    return employersFilters.positions.includes(employer.position)
+                    return employeesFilters.positions.includes(employer.position)
                 })
 
-        if (employersFilters.localisations.length > 0)
-            fEmployers = fEmployers
+        if (employeesFilters.localisations.length > 0)
+            fEmployees = fEmployees
                 .filter(employer => {
                     let includesLocalistaion = false
-                    employersFilters.localisations.forEach(p => {
+                    employeesFilters.localisations.forEach(p => {
                         if (employer.localisations.includes(p))
                             includesLocalistaion = true
                     })
                     return includesLocalistaion
                 })
 
-        if (employersFilters.employmentConditions.length > 0)
-            fEmployers = fEmployers
+        if (employeesFilters.employmentConditions.length > 0)
+            fEmployees = fEmployees
                 .filter(employer => {
-                    return employersFilters.employmentConditions.includes(employer.employmentCondition)
+                    return employeesFilters.employmentConditions.includes(employer.employmentCondition)
                 })
 
-        setFilteredEmployers(fEmployers)
-        const preparedEmployersOptions = prepareSelectOptions(fEmployers, ["name", "surname"])
-        setSelectEmployersOptions(preparedEmployersOptions)
-    }, [employersFilters])
+        setFilteredEmployees(fEmployees)
+        const preparedEmployeesOptions = prepareSelectOptions(fEmployees, ["name", "surname"])
+        setSelectEmployeesOptions(preparedEmployeesOptions)
+    }, [employeesFilters])
 
     const handleChangeSelectFilters = ({ checkedValues, name }) => {
         switch (name) {
             case "position":
-                setEmployersFilters({
-                    ...employersFilters,
+                setEmployeesFilters({
+                    ...employeesFilters,
                     positions: checkedValues
                 })
                 break
             case "localisation":
-                setEmployersFilters({
-                    ...employersFilters,
+                setEmployeesFilters({
+                    ...employeesFilters,
                     localisations: checkedValues
                 })
                 break
             case "employmentCondition":
-                setEmployersFilters({
-                    ...employersFilters,
+                setEmployeesFilters({
+                    ...employeesFilters,
                     employmentConditions: checkedValues
                 })
                 break
             default:
-                setEmployersFilters({
+                setEmployeesFilters({
                     positions: [],
                     localisations: [],
                     employmentConditions: []
@@ -104,11 +104,11 @@ const EmployersSelectionForm = () => {
         }
     }
 
-    const handleChangeSelectEmployers = ({ checkedValues }) => {
-        const emps = filteredEmployers.filter((value, i) => {
+    const handleChangeSelectEmployees = ({ checkedValues }) => {
+        const emps = filteredEmployees.filter((value, i) => {
             return checkedValues.includes(i)
         })
-        setSelectedEmployers(emps)
+        setSelectedEmployees(emps)
     }
 
     const handleChangeDateRange = ({ startDate, endDate }) => {
@@ -118,11 +118,11 @@ const EmployersSelectionForm = () => {
     const handleClickShow = () => {
         console.log(`Zakres dat: ${dateRange.startDate} - ${dateRange.endDate}`);
         console.log("---------------------------")
-        console.table(selectedEmployers)
+        console.table(selectedEmployees)
     }
 
     return (
-        <div className="employersSelectionForm">
+        <div className="employeesSelectionForm">
             <h2 className="title">Wybierz pracowników</h2>
             <FormItem>
                 <DateRangePicker
@@ -157,8 +157,8 @@ const EmployersSelectionForm = () => {
                     label="Pracownicy"
                     name="employer"
                     placeholder="Wybierz opcję"
-                    onChange={handleChangeSelectEmployers}
-                    options={selectEmployersOptions}
+                    onChange={handleChangeSelectEmployees}
+                    options={selectEmployeesOptions}
                 />
             </FormItem>
 
@@ -172,11 +172,11 @@ const EmployersSelectionForm = () => {
                 />
             </FormItem>
 
-            <div className="employersSelectionForm-btn">
+            <div className="employeesSelectionForm-btn">
                 <Button onClick={handleClickShow} >WYŚWIETL</Button>
             </div>
         </div>
     );
 }
 
-export default EmployersSelectionForm;
+export default Employees;
