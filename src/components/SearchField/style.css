@@ -1,0 +1,15 @@
+.searchfield-container{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    box-sizing: border-box;
+    padding: 0 10px 0 10px;
+}
+
+.searchfield-container input{
+    border: none;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}

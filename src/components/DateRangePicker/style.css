@@ -1,0 +1,39 @@
+.DataPicker{
+    position: relative;
+    border-bottom: 1px solid #d3d4d4;
+    padding: 5px;
+    min-height: 30px;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.DataPicker input[type="date"]{
+    width: 140px;
+    font-size: 12pt;
+    box-sizing: border-box;
+    text-align: left;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    padding: 5px 5px;
+}
+
+.checkboxSelect-label{
+    position: absolute;
+    top: -35px;
+    left: 10px;
+    font-size: 10pt;
+    color: rgba(0, 0, 0, 0.4);
+}
+  
+.DataPicker input[type="date"]:first-child{
+    border-right: 1px solid #d3d4d4;
+}
+
+@media only screen and (max-width: 768px){
+    .DataPicker input[type="date"]{
+        width: 100%;
+        border: none;
+    }
+      
+}
