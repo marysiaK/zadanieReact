@@ -9,6 +9,20 @@ import './style.css'
 import employees from './employees';
 
 const Employees = () => {
+    /*
+     Trochę tutaj zaczyna się robić galimatias. Bardzo mocno promowane są hooki i komponenty funkcyjne - ale właściwie nikt nie mówi o ich słabych stronach.
+     Jak włączysz sobie dev toolsy dla swojej aplikacji to zobaczysz, ze wybieranie jakiegokolwiek elementu z checkboxa sprawia, ze cała aplikacja jest re-renderowana.
+
+     To jest pierwszy powazny błąd, który zaczyna grać duzą rolę w duzych projektach. Brak kontroli nad cyklem zycia komponentu. Komponenty klasowe są w tym duzo lepsze i czytelniejsze dzięki metodzie ShouldComponentUpdate.
+     Co prawda dla funkcyjnych są odpowiedniki, jak np React.memo ale memoizacja duzej ilości komponentów moze dać odwrotny efekt.
+
+     Poza tym - po odświezeniu komponentu funkcyjnego - redefiniowane na nowo są WSZYSTKIE metody wewnątrz takiego komponentu. 
+
+     Dlatego w komponencie funkcyjnym powinno być jak najmniej metod - optymalnie Zero, tylko return i hooki. 
+
+     Napewno kolejnym krokiem dla Ciebie będzie REDUX, on pomaga uniknąc właśnie takich problemów z rozbudowanymi komponentami, z duzą ilością stanu i logiki. 
+
+    */
     const [dateRange, setDateRange] = useState({
         startDate: "",
         endDate: ""
@@ -120,7 +134,7 @@ const Employees = () => {
         console.log("---------------------------")
         console.table(selectedEmployees)
     }
-
+/* Zastanowiłbym się nad bardziej generycznym podejściem. Właściwie za kazdym razem kopiowany jest CheckboxSelect z FormItem, ja bym celował w mapowanie obiektu w którym są odpowiednie labele i propsy */
     return (
         <div className="employeesSelectionForm">
             <h2 className="title">Wybierz pracowników</h2>
